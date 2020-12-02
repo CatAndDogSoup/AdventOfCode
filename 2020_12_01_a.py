@@ -11,3 +11,4 @@ with open("2020_12_01_list", "r") as f:
             k = i+j
             if k == 2020:
                 print(i, '  ', j)
+#
