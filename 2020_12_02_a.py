@@ -14,12 +14,12 @@ with open("2020_12_02_list", "r") as f:
         item_max = item_minmax[1]
         #print(item_min)
         #print(item_max)
-        item_letter = item_array[1]
+        item_letter = item_array[1].replace(':','')
         item_password = item_array[2]
         #print(item_letter)
         #print(item_password)
-        item_letter = item_letter.replace(':','')
-        if item.count(item_letter) > int(item_min) and item.count(item_letter) < int(item_max):
-            #print(item)
+        #item_letter = item_letter
+        if item.count(item_letter) >= int(item_min) and item.count(item_letter) <= int(item_max):
+            print(item)
             amount = amount + 1
     print(amount)
