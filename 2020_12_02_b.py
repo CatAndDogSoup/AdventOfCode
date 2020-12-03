@@ -19,6 +19,6 @@ with open("2020_12_02_list", "r") as f:
         #sets item_password as the password
         item_password = item_array[2]
         #checks if the item_letter is in the password on item_min and item_max positions
-        if item_password[int(item_min)-1] == item_letter is not item_password[int(item_max)-1] == item_letter:
+        if (item_password[int(item_min)-1] == item_letter) is not (item_password[int(item_max)-1] == item_letter):
             amount = amount + 1
     print(amount)
