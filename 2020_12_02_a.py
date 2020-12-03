@@ -19,7 +19,7 @@ with open("2020_12_02_list", "r") as f:
         #print(item_letter)
         #print(item_password)
         #item_letter = item_letter
-        if item.count(item_letter) >= int(item_min) and item.count(item_letter) <= int(item_max):
+        if item_password.count(item_letter) >= int(item_min) and item_password.count(item_letter) <= int(item_max):
             print(item)
             amount = amount + 1
     print(amount)
