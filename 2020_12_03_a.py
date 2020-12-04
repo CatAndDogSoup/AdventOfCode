@@ -13,7 +13,6 @@ with open("2020_12_03_list", "r") as f:
     y_move = 1
     # amount for the final amount of trees hit
     amount = 0
-
     # loop over every line in split_data
     for i in range(0, len(split_data), y_move):
         # up x_pos for every iteration
