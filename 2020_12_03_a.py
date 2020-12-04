@@ -5,21 +5,23 @@ with open("2020_12_03_list", "r") as f:
     split_data = read_data.split("\n")
     # Remove any empty listings
     split_data = list(filter(None, split_data))
-    #print(split_data)
+    # width for the line width
     width = len(split_data[0])
-    horizontal = 0
+    # x_pos for the current horizontal position
+    x_pos = 0
+    # amount for the final amount of trees hit
     amount = 0
-    print(len(split_data))
+    # loop over every line in split_data
     for i in range(0, len(split_data)):
-        horizontal = horizontal + 3
-        if horizontal >= width:
-            horizontal = horizontal - width
-        #print(horizontal)
-        #print(split_data[i][horizontal])
-        if split_data[i][horizontal] == "#":
-            print(str(split_data[i][horizontal]).replace('#','X'))
+        # up x_pos for every iteration
+        x_pos = x_pos + 3
+        # wrap x_pos around
+        if x_pos >= width:
+            x_pos = x_pos - width
+
+        if split_data[i][x_pos] == "#":
+            print(split_data[i][:x_pos] + "X" + split_data[i][x_pos + 1:] + " | " + str(x_pos) + "\t| " + str(i))
             amount = amount + 1
-            #print(split_data[i])
         else:
             print(split_data[i])
     print(amount)
