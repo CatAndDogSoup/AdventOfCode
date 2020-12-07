@@ -18,13 +18,8 @@ with open("2020_12_03_list", "r") as f:
         x_pos  = 0
         amount = 0
         for i in range(0, len(split_data), y_move):
-            # up x_pos for every iteration
-
             if split_data[i][x_pos] == "#":
-                #print(split_data[i][:x_pos] + "X" + split_data[i][x_pos + 1:] + " | " + str(x_pos) + "\t| " + str(i))
                 amount = amount + 1
-            #else:
-                #print(split_data[i])
             x_pos = x_pos + x_move
             # wrap x_pos around
             if x_pos >= width:
