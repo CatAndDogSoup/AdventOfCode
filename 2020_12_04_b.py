@@ -1,7 +1,7 @@
 # Read file with AdventOfCode day 4 list
 import re
 import string
-with open("2020_12_04_list", "r") as f:
+with open("2020_12_04_input", "r") as f:
     read_data = f.read()
     # Split data into array
     split_data = read_data.split("\n\n")
@@ -35,10 +35,10 @@ with open("2020_12_04_list", "r") as f:
                             if item_dict["ecl"] in ecl:
                                 if len(item_dict["pid"]) == 9:
                                     if "in" in item_dict["hgt"]:
-                                        if 59 <= int(re.sub("\D", "", item_dict["hgt"])) >= 76:
+                                        if 59 <= int(item_dict["hgt"][:-2]) <= 76:
                                             amount = amount + 1
                                     elif "cm" in item_dict["hgt"]:
-                                        if 150 <= int(re.sub("\D", "", item_dict["hgt"])) >= 193:
+                                        if 150 <= int(item_dict["hgt"][:-2]) <= 193:
                                             amount = amount + 1
 
     print(amount)
