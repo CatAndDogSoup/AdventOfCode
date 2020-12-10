@@ -1,7 +1,7 @@
 # Read file with AdventOfCode day 4 list
 import re
 import string
-with open("2020_12_04_list", "r") as f:
+with open("2020_12_04_input", "r") as f:
     read_data = f.read()
     # Split data into array
     split_data = read_data.split("\n\n")
