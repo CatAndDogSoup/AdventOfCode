@@ -34,7 +34,7 @@ with open("2020_12_05_input", "r") as f:
     for row in split_data:
         for i in row[0:6]:
             result = binary_search(i,0)
-        for i in row[6:9]:
+        for i in row[7:9]:
             result = binary_search(i,1)
             print(result)
 
