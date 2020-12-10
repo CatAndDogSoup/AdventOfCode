@@ -6,43 +6,44 @@ with open("2020_12_05_input", "r") as f:
     split_data = read_data.split("\n")
     # Remove any empty listings
     split_data = list(filter(None, split_data))
-    #split_data = split_data.replace("\n", " ")
+    # Variables
     highest_seat = 0
     highest_row = 127
     lowest_row = 0
     highest_column = 7
     lowest_column = 0
     results = []
-    #print(split_data)
-    def binary_search(input_char,num):
+    def binary_search(input_char):
+        # Import variables
         global highest_row
         global lowest_row
         global highest_column
         global lowest_column
-
-        if input_char == "F" and not num:
-            highest_row = math.floor(highest_row / 2)
-        elif input_char == "B" and not num:
-            lowest_row = math.floor((lowest_row + highest_row) /2)
-        if input_char == "L" and num:
-            highest_column = math.floor(highest_column / 2)
-        elif input_char == "R" and num:
+        # does shit
+        if input_char == "F":
+            highest_row = math.floor((lowest_row + highest_row) / 2)
+        if input_char == "B":
+            lowest_row = math.floor((lowest_row + highest_row) / 2)
+        if input_char == "L":
+            highest_column = math.ceil(highest_column / 2)
+        if input_char == "R":
             lowest_column = math.floor((lowest_column + highest_column) / 2)
 
+        # Return result
         return highest_row, lowest_row, highest_column, lowest_column
 
+    # Run over every row
     for row in split_data:
-        for i in row[0:6]:
-            result = binary_search(i,0)
-        for i in row[7:9]:
-            result = binary_search(i,1)
-            print(result)
-
-        results.append((result[0] * 8) + max(result[2],result[3]))
+        # Run over every character in that row
+        for i in row:
+            # Set the result based on binary_search
+            result = binary_search(i)
+        # appends the result to the results list
+        results.append((max(result[0:1]) * 8) + max(result[2],result[3]))
+        # resets the variables
         highest_row = 127
         lowest_row = 0
         highest_column = 7
         lowest_column = 0
-
-    print(results)
+    # prints result
     print(max(results))
